@@ -1,3 +1,5 @@
+ATENÇÂO LEIA O ARQUIVO EM FORMATO DE CODIGO!!
+
 # Fundamentos de Lógica e Lógica de Programação 
 
 *Lógica 
