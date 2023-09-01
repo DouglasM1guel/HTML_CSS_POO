@@ -119,4 +119,192 @@ VALOR_BIT = 1
 Escreva VALOR_BIT
 Fim
 
+Pulando e virando 90 graus 
+
+Programa: PSEUDO03 - Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PLANO = 1
+VALOR_LADO = 90
+VALOR_PLANO = 1
+VALOR_LADO = 90
+VALOR_PLANO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+2 teste 
+
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0// 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0// 1 = avancar um quadro a frente
+VALOR_LADO = 0// 90 = virar 90 graus para direita
+VALOR_BIT = 0// 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PLANO = 1
+VALOR_PLANO = 1
+VALOR_PLANO = 1
+VALOR_PLANO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+3 teste 
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PLANO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+
+4 teste 
+
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = 90
+VALOR_PLANO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+5 teste 
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PLANO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PLANO = 1
+VALOR_PLANO = 1
+VALOR_LADO = 90
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PLANO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0// 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0// 1 = avancar um quadro a frente
+VALOR_LADO = 0// 90 = virar 90 graus para direita
+VALOR_BIT = 0// 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PLANO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = +90
+VALOR_PLANO = 1
+VALOR_LADO = +90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+Algoritmo Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PLANO, VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PLANO = 0 // 1 = avançar plano (salto/pulo)
+VALOR_PASSO = 0 // 1 = avancar um quadro a frente
+VALOR_LADO = 0 // 90 = virar 90 graus para direita
+VALOR_BIT = 0 // 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = 90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = 90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
 
