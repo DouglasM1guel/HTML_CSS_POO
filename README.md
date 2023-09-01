@@ -82,3 +82,41 @@ Início
         Escreva "Saldo insuficiente. Não será possível realizar a operação."
     Fim Se
 Fim
+
+
+Codificando Jogo 
+
+Programa: PSEUDO01 - Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PASSO, VALOR_BIT:inteiro
+VALOR_PASSO = 0// 1 = avancar um quadro a frente
+VALOR_BIT = 0// 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+Virando 90 graus 2 vezes 
+
+Programa: PSEUDO02 - Conducao_de_um_Elemento
+// rotina de conducao de um elemento
+VALOR_PASSO, VALOR_LADO, VALOR_BIT:inteiro
+VALOR_PASSO = 0// 1 = avancar um quadro a frente
+VALOR_LADO = 0// +90 = virar 90 graus para direita
+VALOR_BIT = 0// 1 = bit ligado
+Inicio
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_LADO = -90
+VALOR_PASSO = 1
+VALOR_PASSO = 1
+VALOR_BIT = 1
+Escreva VALOR_BIT
+Fim
+
+
