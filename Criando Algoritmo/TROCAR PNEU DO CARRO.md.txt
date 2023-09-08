@@ -1,0 +1,15 @@
+Faça um algoritmo COMO TROCAR O PNEU DO CARRO uma ação por linha.
+
+1 PEGAR chave do carro
+
+2 ABRIR Porta malas
+
+3 PEGAR estepe e a chave de roda
+
+4 SOLTAR parafusos roda 
+
+5 RETIRAR roda danificada
+
+6 COLOCAR Estepe
+
+7 APERTAR parafusos roda 
