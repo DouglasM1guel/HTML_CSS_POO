@@ -1,0 +1,8 @@
+Polimorfismo
+E o polimorfismo? Você sabe o que é e como funciona?
+
+O polimorfismo é um pilar da POO que é utilizado para que duas classes façam uso do mesmo método, implementando-o de formas diferentes. Ele permite que o programador desenvolva o código de forma ampla ao invés de perder muito tempo no desenvolvimento de códigos específicos. Ou seja, o polimorfismo permite que sistemas sejam escritos de forma a processar objetos que compartilham a mesma superclasse (classe já existente), como se eles fossem parte direta dela.
+
+Se pensarmos na superclasse Animal, estabelecemos o método “emitir o som do objeto animal”, ou seja, os objetos pato, cachorro e gato, por exemplo, devem emitir um som ao comando do método, mas cada um fará isso de um jeito diferente.
+
+Agora observe no fluxo apresentado, mais um exemplo de que o polimorfismo foi este processo de implementar métodos (mover).
