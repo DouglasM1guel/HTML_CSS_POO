@@ -1,1 +1,7 @@
-INTRODUÇÂO A POO
+INTRODUÇÂO A POO;
+Conceito de encapsulamento
+É a ação de ocultar partes independentes da implementação, permitindo construir partes invisíveis ao mundo exterior.
+
+Ok, mas se no fim eu estou ocultando detalhes do código, como que ele vai funcionar? A POO permite que você converse com esta cápsula, trocando informações entre o mundo externo e o objeto por meio de mensagens. Portanto, ao enviar mensagens para essa cápsula, você vai obter uma resposta, sem precisar entrar nela.
+
+Mas não podemos esquecer de um importante detalhe! Para que haja esta troca de mensagens, precisamos desenvolver uma interface. É a interface que permite esta comunicação com o mundo externo.
