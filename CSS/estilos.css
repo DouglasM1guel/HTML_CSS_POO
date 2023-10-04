@@ -8,11 +8,20 @@ hr {
 	color:black;
 }	
 h1 {
-	color:black;
+	color:#40E0D0;
+}
+p.uppercase {
+    text-transform: uppercase;
+}
+p.date {
+ 	text-align:right;
+}
+p.main {
+	text-align:justify;
 }
 p {
-    text-align: left;
-	color:black;
+    color: #40E0D0;
 	font-family: arial:
 }	
+
 	
