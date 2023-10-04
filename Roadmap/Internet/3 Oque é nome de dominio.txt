@@ -1,0 +1,112 @@
+O que é um nome de domínio?
+Pré-requisitos:	Primeiro você precisa saber como a Internet funciona e entender o que são URLs.
+Objetivo:	Saiba o que são nomes de domínio, como funcionam e por que são importantes.
+Resumo
+Os nomes de domínio são uma parte fundamental da infraestrutura da Internet. Eles fornecem um endereço legível por humanos para qualquer servidor web disponível na Internet.
+
+Qualquer computador conectado à Internet pode ser acessado através de um endereço IP público, um endereço IPv4 (por exemplo, ) ou um endereço IPv6 (por exemplo, ).192.0.2.1722001:db8:8b73:0000:0000:8a2e:0370:1337
+
+Os computadores podem lidar com esses endereços facilmente, mas as pessoas têm dificuldade em descobrir quem está executando o servidor ou qual serviço o site oferece. Os endereços IP são difíceis de lembrar e podem mudar com o tempo.
+
+Para resolver todos esses problemas, usamos endereços legíveis por humanos chamados nomes de domínio.
+
+Mergulho mais profundo
+Estrutura dos nomes de domínio
+Um nome de domínio tem uma estrutura simples feita de várias partes (pode ser apenas uma parte, duas, três...), separadas por pontos e lidas da direita para a esquerda:
+
+Anatomia do nome de domínio MDN
+Cada uma dessas partes fornece informações específicas sobre todo o nome de domínio.
+
+TLD (Domínio de Nível Superior).
+Os TLDs informam aos usuários o propósito geral do serviço por trás do nome de domínio. Os TLDs mais genéricos (, , ) não exigem que os serviços da Web atendam a nenhum critério específico, mas alguns TLDs impõem políticas mais rígidas para que fique mais claro qual é sua finalidade. Por exemplo:.com.org.net
+
+TLDs locais, como , ou podem exigir que o serviço seja fornecido em um determinado idioma ou hospedado em um determinado país — eles devem indicar um recurso em um idioma ou país específico..us.fr.se
+TLDs contendo só podem ser usados por departamentos governamentais..gov
+O TLD é apenas para uso por instituições educacionais e acadêmicas..edu
+Os TLDs podem conter caracteres especiais e latinos. O comprimento máximo de um TLD é de 63 caracteres, embora a maioria esteja em torno de 2 a 3.
+
+A lista completa de TLDs é mantida pela ICANN.
+
+Rótulo (ou componente)
+Os rótulos são os que seguem o TLD. Um rótulo é uma sequência de caracteres que não diferencia maiúsculas de minúsculas em qualquer lugar de um a sessenta e três caracteres de comprimento, contendo apenas as letras através de , dígitos através de , e o caractere '-' (que pode não ser o primeiro ou o último caractere no rótulo). , e são todos exemplos de rótulos válidos.AZ09a97hello-strange-person-16-how-are-you
+
+O rótulo localizado logo antes do TLD também é chamado de Domínio de Nível Secundário (SLD).
+
+Um nome de domínio pode ter muitos rótulos (ou componentes). Não é obrigatório nem necessário ter 3 rótulos para formar um nome de domínio. Por exemplo, www.inf.ed.ac.uk é um nome de domínio válido. Para qualquer domínio que você controla (por exemplo, mozilla.org), você pode criar "subdomínios" com conteúdo diferente localizado em cada um, como developer.mozilla.org, iot.mozilla.org ou bugzilla.mozilla.org.
+
+Comprar um nome de domínio
+Quem possui um nome de domínio?
+Você não pode "comprar um nome de domínio". Isso é para que nomes de domínio não utilizados eventualmente se tornem disponíveis para serem usados novamente por outra pessoa. Se todos os nomes de domínio fossem comprados, a web se encheria rapidamente de nomes de domínio não utilizados que estavam bloqueados e não podiam ser usados por ninguém.
+
+Em vez disso, você paga pelo direito de usar um nome de domínio por um ou mais anos. Você pode renovar seu direito, e sua renovação tem prioridade sobre os pedidos de outras pessoas. Mas você nunca possui o nome de domínio.
+
+As empresas chamadas registradores usam registros de nomes de domínio para acompanhar as informações técnicas e administrativas que conectam você ao seu nome de domínio.
+
+Nota: Para algum nome de domínio, pode não ser um registrador responsável por manter o controle. Por exemplo, cada nome de domínio é gerenciado pela Amazon..fire
+
+Localizando um nome de domínio disponível
+Para descobrir se um determinado nome de domínio está disponível,
+
+Acesse o site de um registrador de nomes de domínio. A maioria deles fornece um serviço "whois" que informa se um nome de domínio está disponível.
+Como alternativa, se você usar um sistema com um shell interno, digite um comando nele, conforme mostrado aqui para: whoismozilla.org
+BASH
+Copiar para área de transferência
+
+whois mozilla.org
+Isso produzirá o seguinte:
+Domain Name:MOZILLA.ORG
+Domain ID: D1409563-LROR
+Creation Date: 1998-01-24T05:00:00Z
+Updated Date: 2013-12-08T01:16:57Z
+Registry Expiry Date: 2015-01-23T05:00:00Z
+Sponsoring Registrar:MarkMonitor Inc. (R37-LROR)
+Sponsoring Registrar IANA ID: 292
+WHOIS Server:
+Referral URL:
+Domain Status: clientDeleteProhibited
+Domain Status: clientTransferProhibited
+Domain Status: clientUpdateProhibited
+Registrant ID:mmr-33684
+Registrant Name:DNS Admin
+Registrant Organization:Mozilla Foundation
+Registrant Street: 650 Castro St Ste 300
+Registrant City:Mountain View
+Registrant State/Province:CA
+Registrant Postal Code:94041
+Registrant Country:US
+Registrant Phone:+1.6509030800
+Como você pode ver, eu não posso me registrar porque a Mozilla Foundation já o registrou.mozilla.org
+
+Por outro lado, vamos ver se consegui registrar:afunkydomainname.org
+
+BASH
+Copiar para área de transferência
+
+whois afunkydomainname.org
+Isso resultará o seguinte (no momento em que escrevo):
+
+NOT FOUND
+Como você pode ver, o domínio não existe no banco de dados, então poderíamos pedir para registrá-lo. Bom saber!whois
+
+Obtendo um nome de domínio
+O processo é bastante simples:
+
+Acesse o site de um registrador.
+Normalmente, há uma chamada para ação proeminente "Obter um nome de domínio". Clique nele.
+Preencha o formulário com todos os detalhes necessários. Certifique-se, especialmente, de que você não tenha escrito incorretamente o nome de domínio desejado. Uma vez pago, é tarde demais!
+O registrador informará quando o nome de domínio estiver devidamente registrado. Dentro de algumas horas, todos os servidores DNS terão recebido suas informações de DNS.
+Nota: Nesse processo, o registrador solicita seu endereço do mundo real. Certifique-se de preenchê-lo corretamente, pois em alguns países os registradores podem ser forçados a fechar o domínio se não puderem fornecer um endereço válido.
+
+DNS refreshing
+DNS databases are stored on every DNS server worldwide, and all these servers refer to a few special servers called "authoritative name servers" or "top-level DNS servers" — these are like the boss servers that manage the system.
+
+Whenever your registrar creates or updates any information for a given domain, the information must be refreshed in every DNS database. Each DNS server that knows about a given domain stores the information for some time before it is automatically invalidated and then refreshed (the DNS server queries an authoritative server and fetches the updated information from it). Thus, it takes some time for DNS servers that know about this domain name to get the up-to-date information.
+
+How does a DNS request work?
+As we already saw, when you want to display a webpage in your browser it's easier to type a domain name than an IP address. Let's take a look at the process:
+
+Type in your browser's location bar.mozilla.org
+Your browser asks your computer if it already recognizes the IP address identified by this domain name (using a local DNS cache). If it does, the name is translated to the IP address and the browser negotiates contents with the web server. End of story.
+If your computer does not know which IP is behind the name, it goes on to ask a DNS server, whose job is precisely to tell your computer which IP address matches each registered domain name.mozilla.org
+Now that the computer knows the requested IP address, your browser can negotiate contents with the web server.
+Explicação das etapas necessárias para obter o resultado para uma solicitação DNS

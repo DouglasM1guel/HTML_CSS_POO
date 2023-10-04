@@ -1,0 +1,87 @@
+O que é DNS?
+O Sistema de Nomes de Domínio (DNS) é a lista telefônica da Internet. Os seres humanos acessam informações on-line por meio de nomes de domínio, como nytimes.com ou espn.com. Os navegadores da Web interagem por meio de endereços IP (Internet Protocol). O DNS converte nomes de domínio em endereços IP para que os navegadores possam carregar recursos da Internet.
+
+Cada dispositivo conectado à Internet tem um endereço IP exclusivo que outras máquinas usam para encontrar o dispositivo. Os servidores DNS eliminam a necessidade de humanos memorizarem endereços IP, como 192.168.1.1 (em IPv4), ou endereços IP alfanuméricos mais complexos, como 2400:cb00:2048:1::c629:d7a2 (em IPv6).
+
+DNS - lupa examina endereços IP, encontra www.example.com
+Como funciona o DNS?
+O processo de resolução DNS envolve a conversão de um nome de host (como www.example.com) em um endereço IP amigável ao computador (como 192.168.1.1). Um endereço IP é dado a cada dispositivo na Internet, e esse endereço é necessário para encontrar o dispositivo de Internet apropriado - como um endereço de rua é usado para encontrar uma casa específica. Quando um usuário deseja carregar uma página da Web, uma tradução deve ocorrer entre o que um usuário digita em seu navegador da Web (example.com) e o endereço amigável para máquina necessário para localizar a página da Web example.com.
+
+Para entender o processo por trás da resolução DNS, é importante aprender sobre os diferentes componentes de hardware que uma consulta DNS deve passar. Para o navegador da Web, a pesquisa de DNS ocorre "nos bastidores" e não requer nenhuma interação do computador do usuário além da solicitação inicial.
+
+Existem 4 servidores DNS envolvidos no carregamento de uma página Web:
+Cursor de DNS - O cursor pode ser pensado como um bibliotecário que é solicitado a ir encontrar um determinado livro em algum lugar em uma biblioteca. O cursor DNS é um servidor projetado para receber consultas de máquinas cliente por meio de aplicativos como navegadores da Web. Normalmente, o cursor é responsável por fazer solicitações adicionais para satisfazer a consulta DNS do cliente.
+Servidor de nomes raiz - O servidor raiz é a primeira etapa na conversão (resolução) de nomes de host legíveis por humanos em endereços IP. Ele pode ser pensado como um índice em uma biblioteca que aponta para diferentes racks de livros - normalmente serve como referência para outros locais mais específicos.
+Servidor de nomes TLD - O servidor de domínio de nível superior (TLD) pode ser considerado como um rack específico de livros em uma biblioteca. Esse servidor de nomes é a próxima etapa na busca por um endereço IP específico e hospeda a última parte de um nome de host (em example.com, o servidor TLD é "com").
+Servidor de nomes autoritativo - Este servidor de nomes final pode ser pensado como um dicionário em um rack de livros, no qual um nome específico pode ser traduzido em sua definição. O servidor de nomes autoritativo é a última parada na consulta do servidor de nomes. Se o servidor de nomes autoritativo tiver acesso ao registro solicitado, ele retornará o endereço IP do nome de host solicitado de volta ao Cursor DNS (o bibliotecário) que fez a solicitação inicial.
+Qual é a diferença entre um servidor DNS autoritativo e um resolvedor DNS recursivo?
+Ambos os conceitos se referem a servidores (grupos de servidores) que são parte integrante da infraestrutura DNS, mas cada um executa uma função diferente e vive em locais diferentes dentro do pipeline de uma consulta DNS. Uma maneira de pensar sobre a diferença é que o resolvedor recursivo está no início da consulta DNS e o servidor de nomes autoritativo está no final.
+
+Resolvedor de DNS recursivo
+O resolvedor recursivo é o computador que responde a uma solicitação recursiva de um cliente e leva tempo para rastrear o registro DNS. Ele faz isso fazendo uma série de solicitações até chegar ao servidor de nomes DNS autoritativo para o registro solicitado (ou expira ou retorna um erro se nenhum registro for encontrado). Felizmente, os resolvedores DNS recursivos nem sempre precisam fazer várias solicitações para rastrear os registros necessários para responder a um cliente; O cache é um processo de persistência de dados que ajuda a curto-circuito nas solicitações necessárias, servindo o registro de recurso solicitado anteriormente na pesquisa de DNS.
+
+Sequência de solicitação de registro DNS - O resolvedor recursivo DNS obtém solicitação do cliente
+Servidor DNS autoritativo
+Simplificando, um servidor DNS autoritativo é um servidor que realmente mantém, e é responsável por, registros de recursos DNS. Este é o servidor na parte inferior da cadeia de pesquisa de DNS que responderá com o registro de recurso consultado, permitindo que o navegador da Web que faz a solicitação alcance o endereço IP necessário para acessar um site ou outros recursos da Web. Um servidor de nomes autoritativo pode satisfazer consultas de seus próprios dados sem precisar consultar outra fonte, pois é a fonte final de verdade para certos registros DNS.
+
+Sequência de solicitação de registro DNS - A consulta DNS alcança o servidor de nomes autoritativo para cloudflare.com
+Vale a pena mencionar que, nos casos em que a consulta é para um subdomínio, como foo.example.com ou blog.cloudflare.com, um servidor de nomes adicional será adicionado à sequência após o servidor de nomes autoritativo, que é responsável por armazenar o registro CNAME do subdomínio.
+
+Sequência de solicitação de registro DNS - consulta DNS ao registro CNAME para blog.cloudflare.com de subdomínio
+Há uma diferença fundamental entre muitos serviços DNS e o que a Cloudflare fornece. Diferentes resolvedores recursivos de DNS, como DNS do Google, OpenDNS e provedores como Comcast, mantêm instalações de data center de resolvedores recursivos de DNS. Esses resolvedores permitem consultas rápidas e fáceis por meio de clusters otimizados de sistemas de computador otimizados para DNS, mas são fundamentalmente diferentes dos servidores de nomes hospedados pela Cloudflare.
+
+A Cloudflare mantém servidores de nomes em nível de infraestrutura que são parte integrante do funcionamento da Internet. Um exemplo importante é a rede de servidores f-root, que a Cloudflare é parcialmente responsável pela hospedagem. A raiz F é um dos componentes de infraestrutura de servidor de nomes DNS de nível raiz responsável pelos bilhões de solicitações da Internet por dia. Nossa rede Anycast nos coloca em uma posição única para lidar com grandes volumes de tráfego DNS sem interrupção do serviço.
+
+Quais são as etapas em uma pesquisa de DNS?
+Para a maioria das situações, o DNS está preocupado com um nome de domínio sendo convertido para o endereço IP apropriado. Para saber como esse processo funciona, é útil seguir o caminho de uma pesquisa de DNS enquanto ela viaja de um navegador da Web, pelo processo de pesquisa de DNS e vice-versa. Vamos dar uma olhada nas etapas.
+
+Nota: Muitas vezes, as informações de pesquisa de DNS serão armazenadas em cache localmente dentro do computador de consulta ou remotamente na infraestrutura DNS. Normalmente, há 8 etapas em uma pesquisa de DNS. Quando as informações de DNS são armazenadas em cache, as etapas são ignoradas do processo de pesquisa de DNS, o que o torna mais rápido. O exemplo abaixo descreve todas as 8 etapas quando nada é armazenado em cache.
+
+As 8 etapas em uma pesquisa de DNS:
+Um usuário digita 'example.com' em um navegador da Web e a consulta viaja para a Internet e é recebida por um resolvedor recursivo de DNS.
+Em seguida, o resolvedor consulta um servidor de nomes raiz DNS (.).
+Em seguida, o servidor raiz responde ao resolvedor com o endereço de um servidor DNS de domínio de nível superior (TLD) (como .com ou .net), que armazena as informações de seus domínios. Ao procurar por example.com, nossa solicitação é apontada para o TLD .com.
+Em seguida, o resolvedor faz uma solicitação ao TLD .com.
+Em seguida, o servidor TLD responde com o endereço IP do servidor de nomes do domínio, example.com.
+Por fim, o resolvedor recursivo envia uma consulta ao servidor de nomes do domínio.
+O endereço IP de example.com é retornado ao resolvedor a partir do servidor de nomes.
+Em seguida, o resolvedor DNS responde ao navegador da Web com o endereço IP do domínio solicitado inicialmente.
+Uma vez que as 8 etapas da pesquisa DNS tenham retornado o endereço IP para example.com, o navegador é capaz de fazer a solicitação para a página da Web:
+
+O navegador faz uma solicitação HTTP para o endereço IP.
+O servidor nesse IP retorna a página da Web a ser renderizada no navegador (etapa 10).
+Pesquisa completa de DNS e consulta de página da Web - 10 etapas
+O que é um resolvedor de DNS?
+O resolvedor de DNS é a primeira parada na pesquisa de DNS e é responsável por lidar com o cliente que fez a solicitação inicial. O resolvedor inicia a sequência de consultas que, em última análise, leva a uma URL sendo convertida no endereço IP necessário.
+
+Nota: Uma pesquisa típica de DNS não armazenado em cache envolverá consultas recursivas e iterativas.
+
+É importante diferenciar entre uma consulta DNS recursiva e um resolvedor DNS recursivo. A consulta refere-se à solicitação feita a um resolvedor de DNS que requer a resolução da consulta. Um resolvedor recursivo DNS é o computador que aceita uma consulta recursiva e processa a resposta fazendo as solicitações necessárias.
+
+A consulta recursiva de DNS vai do cliente DNS para o resolvedor recursivo de DNS
+Quais são os tipos de consultas DNS?
+Em uma pesquisa de DNS típica, ocorrem três tipos de consultas. Usando uma combinação dessas consultas, um processo otimizado para resolução de DNS pode resultar em uma redução da distância percorrida. Em uma situação ideal, os dados de registro armazenados em cache estarão disponíveis, permitindo que um servidor de nomes DNS retorne uma consulta não recursiva.
+
+3 tipos de consultas DNS:
+Consulta recursiva - Em uma consulta recursiva, um cliente DNS requer que um servidor DNS (normalmente um resolvedor recursivo DNS) responda ao cliente com o registro de recurso solicitado ou uma mensagem de erro se o resolvedor não conseguir localizar o registro.
+Consulta iterativa - nessa situação, o cliente DNS permitirá que um servidor DNS retorne a melhor resposta possível. Se o servidor DNS consultado não tiver uma correspondência para o nome da consulta, ele retornará uma referência a um servidor DNS autoritativo para um nível inferior do namespace de domínio. O cliente DNS fará uma consulta ao endereço de referência. Esse processo continua com servidores DNS adicionais na cadeia de consulta até que ocorra um erro ou tempo limite.
+Consulta não recursiva - normalmente isso ocorrerá quando um cliente resolvedor de DNS consultar um servidor DNS em busca de um registro ao qual ele tenha acesso porque ele é autoritativo para o registro ou porque o registro existe dentro de seu cache. Normalmente, um servidor DNS armazenará em cache os registros DNS para evitar o consumo adicional de largura de banda e a carga em servidores upstream.
+O que é cache DNS? Onde ocorre o cache DNS?
+O objetivo do cache é armazenar dados temporariamente em um local que resulta em melhorias no desempenho e na confiabilidade para solicitações de dados. O cache DNS envolve o armazenamento de dados mais perto do cliente solicitante para que a consulta DNS possa ser resolvida mais cedo e consultas adicionais mais abaixo na cadeia de pesquisa DNS possam ser evitadas, melhorando assim os tempos de carregamento e reduzindo o consumo de largura de banda/CPU. Os dados DNS podem ser armazenados em cache em uma variedade de locais, cada um dos quais armazenará registros DNS por um período de tempo definido determinado por um tempo de vida (TTL).
+
+Cache DNS do navegador
+Os navegadores da Web modernos são projetados por padrão para armazenar em cache registros DNS por um período de tempo definido. O propósito aqui é óbvio; quanto mais próximo o cache DNS ocorre do navegador da Web, menos etapas de processamento devem ser tomadas para verificar o cache e fazer as solicitações corretas para um endereço IP. Quando uma solicitação é feita para um registro DNS, o cache do navegador é o primeiro local verificado para o registro solicitado.
+
+No Chrome, você pode ver o status do cache DNS acessando chrome://net-internals/#dns.
+
+Operating system (OS) level DNS caching
+The operating system level DNS resolver is the second and last local stop before a DNS query leaves your machine. The process inside your operating system that is designed to handle this query is commonly called a “stub resolver” or DNS client. When a stub resolver gets a request from an application, it first checks its own cache to see if it has the record. If it does not, it then sends a DNS query (with a recursive flag set), outside the local network to a DNS recursive resolver inside the Internet service provider (ISP).
+
+When the recursive resolver inside the ISP receives a DNS query, like all previous steps, it will also check to see if the requested host-to-IP-address translation is already stored inside its local persistence layer.
+
+The recursive resolver also has additional functionality depending on the types of records it has in its cache:
+
+Se o resolvedor não tiver os registros A, mas tiver os registros NS para os servidores de nomes autoritativos, ele consultará esses servidores de nomes diretamente, ignorando várias etapas na consulta DNS. Esse atalho impede pesquisas dos servidores de nomes raiz e .com (em nossa busca por example.com) e ajuda a resolução da consulta DNS a ocorrer mais rapidamente.
+Se o resolvedor não tiver os registros NS, ele enviará uma consulta aos servidores TLD (.com no nosso caso), ignorando o servidor raiz.
+No caso improvável de o resolvedor não ter registros apontando para os servidores TLD, ele consultará os servidores raiz. Esse evento geralmente ocorre depois que um cache DNS foi limpo.
+Saiba mais sobre o que diferencia o DNS da Cloudflare de outros provedores de DNS.
