@@ -1,0 +1,55 @@
+body {
+    font-family: monospace;
+}
+
+ul {
+   font-family: Helvetica;
+}
+
+li {
+    list-style: circle;
+}
+
+.list {
+    list-style: square;
+}
+
+#msg {
+    font-family: monospace;
+}
+
+.light-theme {
+    color: #000000;
+    background-color: #00ff00;
+}
+
+.dark-theme {
+    color: #00ff00;
+    background-color: #000000;
+}
+
+
+:root{
+    --green: #00ff00;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+.light-theme {
+    --bg: var(--green);
+    --fontColor: var(--black);
+}
+
+.dark-theme {
+    --bg: var(--black);
+    --fontColor: var(--green):
+}
+
+* {
+    color: var(--fontColor);
+    font-family: hevetica;
+}
+
+body {
+    background: var(--bg);
+}
